@@ -1,52 +1,50 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
 
-<div>
-<h1>Password Generator</h1>
-<label>Enter Length</label>
-<input (input)="onChangeLength($any($event.target).value)"/>
+      <div class="field">
+        <label>Length</label>
+        <input class="input" (input)="onChangeLength($any($event.target).value)" />
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseLetters()" type="checkbox" />
+            Use Letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseNumbers()" type="checkbox" />
+            Use Numbers
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseSymbols()" type="checkbox" />
+            Use Symbols
+          </label>
+        </div>
+      </div>
+
+      <button [disabled]="
+          !(length && (includesLetters || includesNumbers || includesSymbols))
+        " (click)="onButtonClick()" class="button is-link is-fullwidth">
+        Generate!
+      </button>
+
+      <div class="box">
+        <label>Your Password</label>
+        <input class="input" [value]="password" />
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<div>
-  <label>Use Letters</label>
-  <input (change)="onChangeUseLetters()"  type="checkbox"/>
-  <label>Use Letters</label>
-</div>
-
-
-<div>
-  <label>Use Numbers</label>
-  <input (change)="onChangeUseNumbers()" type="checkbox"/>
-  <label>Use Letters</label>
-</div>
-
-
-<div>
-  <label>Use Symbols</label>
-  <input (change)="onChangeUseSymbols()" type="checkbox"/>
-  <label>Use Letters</label>
-</div>
-
-<div>
-  <button [disabled]="!(length &&
-  includesLetters || 
-  includesNumbers || 
-  includesSymbols)" 
-  (click)="onButtonClick()">
-  Generate!
-</button>
-</div>
-
-<div>
-  <label>Your Password</label>
- <input [value]="password"/>
-</div>
-
-{{password}}
