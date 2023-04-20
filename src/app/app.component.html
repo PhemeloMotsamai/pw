@@ -1,0 +1,52 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<div>
+<h1>Password Generator</h1>
+<label>Enter Length</label>
+<input (input)="onChangeLength($any($event.target).value)"/>
+</div>
+
+
+<div>
+  <label>Use Letters</label>
+  <input (change)="onChangeUseLetters()"  type="checkbox"/>
+  <label>Use Letters</label>
+</div>
+
+
+<div>
+  <label>Use Numbers</label>
+  <input (change)="onChangeUseNumbers()" type="checkbox"/>
+  <label>Use Letters</label>
+</div>
+
+
+<div>
+  <label>Use Symbols</label>
+  <input (change)="onChangeUseSymbols()" type="checkbox"/>
+  <label>Use Letters</label>
+</div>
+
+<div>
+  <button [disabled]="!(length &&
+  includesLetters || 
+  includesNumbers || 
+  includesSymbols)" 
+  (click)="onButtonClick()">
+  Generate!
+</button>
+</div>
+
+<div>
+  <label>Your Password</label>
+ <input [value]="password"/>
+</div>
+
+{{password}}
